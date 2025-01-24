@@ -57,38 +57,34 @@
       .getElementById("form")
       .addEventListener("submit", function (event) {
         event.preventDefault();
-        let url = document.getElementById("input").value.trim(); // Trim spaces from the URL
+        let url = document.getElementById("input").value.trim();
         let id = getYoutubeVideoId(url);
 
         if (id) {
-          // Create embed URL with the video ID
           let embed = `https://www.youtube.com/embed/${id}`;
           let iframe = document.getElementById("videoframe");
-          iframe.src = embed; // Set iframe src to the embed URL
+          iframe.src = embed;
         } else {
-          alert("Invalid YouTube URL"); // If no valid video ID found
+          alert("Invalid YouTube URL");
         }
       });
 
     function getYoutubeVideoId(url) {
-      // Updated regex for standard youtube.com URLs with ?v=
       let regex =
         /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:v|watch)(?:[^\w]|\?v=)([a-zA-Z0-9_-]{11}))/;
       let match = url.match(regex);
 
       if (match && match[1]) {
-        return match[1]; // Correctly returns the video ID from youtube.com URLs
+        return match[1];
       }
 
-      // Updated regex for shortened youtube.be URLs
       regex = /(?:https?:\/\/(?:www\.)?youtu\.be\/([\w\-]+))/;
       match = url.match(regex);
 
       if (match && match[1]) {
-        return match[1]; // Correctly returns the video ID from youtu.be URLs
+        return match[1];
       }
 
-      // Return null if no valid video ID found
       return null;
     }
   </script>
