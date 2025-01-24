@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1 class="display-5 bold">YTPlayer</h1>
+    <h1 class="display-5 bold">YouTube Player</h1>
     <p>Created by Pratyush Verma</p>
     <p class="fs-5 bold">Play YouTube videos via URL</p>
     <form id="form">
@@ -44,12 +44,10 @@
           id="videoframe"
           width="560"
           height="315"
-          style="margin-top: 20px"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
-        >
-        </iframe>
+        ></iframe>
       </div>
     </div>
   </body>
@@ -59,12 +57,39 @@
       .getElementById("form")
       .addEventListener("submit", function (event) {
         event.preventDefault();
-        let url = document.getElementById("input").value;
-        let id = url.slice(-11);
-        let template = "https://www.youtube.com/embed/";
-        let embed = template + id;
-        let iframe = document.getElementById("videoframe");
-        iframe.src = embed;
+        let url = document.getElementById("input").value.trim(); // Trim spaces from the URL
+        let id = getYoutubeVideoId(url);
+
+        if (id) {
+          // Create embed URL with the video ID
+          let embed = `https://www.youtube.com/embed/${id}`;
+          let iframe = document.getElementById("videoframe");
+          iframe.src = embed; // Set iframe src to the embed URL
+        } else {
+          alert("Invalid YouTube URL"); // If no valid video ID found
+        }
       });
+
+    function getYoutubeVideoId(url) {
+      // Updated regex for standard youtube.com URLs with ?v=
+      let regex =
+        /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:v|watch)(?:[^\w]|\?v=)([a-zA-Z0-9_-]{11}))/;
+      let match = url.match(regex);
+
+      if (match && match[1]) {
+        return match[1]; // Correctly returns the video ID from youtube.com URLs
+      }
+
+      // Updated regex for shortened youtube.be URLs
+      regex = /(?:https?:\/\/(?:www\.)?youtu\.be\/([\w\-]+))/;
+      match = url.match(regex);
+
+      if (match && match[1]) {
+        return match[1]; // Correctly returns the video ID from youtu.be URLs
+      }
+
+      // Return null if no valid video ID found
+      return null;
+    }
   </script>
 </html>
