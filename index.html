@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="logo.png" sizes="32x32" />
   </head>
-  <body>
+  <body data-bs-theme="light">
     <div
       class="d-flex align-items-center justify-content-center"
       style="margin-bottom: 20px"
@@ -32,6 +32,40 @@
     </div>
 
     <p>Created by Pratyush Verma</p>
+
+    <div
+      class="d-flex justify-content-center align-items-center"
+      style="margin-bottom: 10px; margin-top: 10px"
+    >
+      <div class="form-check form-switch d-flex align-items-center">
+        <input
+          class="form-check-input me-2"
+          type="checkbox"
+          id="darkModeSwitch"
+        />
+        <label class="form-check-label mb-0" for="darkModeSwitch"
+          >Dark Mode</label
+        >
+      </div>
+    </div>
+
+    <script>
+      const darkModeSwitch = document.getElementById("darkModeSwitch");
+      const body = document.body;
+
+      // Check local storage to set the initial theme
+      const savedTheme = localStorage.getItem("theme") || "light";
+      body.setAttribute("data-bs-theme", savedTheme);
+      darkModeSwitch.checked = savedTheme === "dark";
+
+      // Add event listener to toggle the theme
+      darkModeSwitch.addEventListener("change", () => {
+        const theme = darkModeSwitch.checked ? "dark" : "light";
+        body.setAttribute("data-bs-theme", theme);
+        localStorage.setItem("theme", theme); // Save the preference
+      });
+    </script>
+
     <p class="fs-5 bold">Play YouTube videos via URL</p>
     <form id="form">
       <div>
