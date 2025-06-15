@@ -3,135 +3,154 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+      rel="stylesheet"
+    />
     <title>YTPlayer</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
       crossorigin="anonymous"
     />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/png" href="logo.png" sizes="32x32" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
   </head>
-  <body data-bs-theme="light">
-    <div
-      class="d-flex align-items-center justify-content-center"
-      style="margin-bottom: 20px"
-    >
-      <img
-        src="logo.png"
-        alt="FocusTimer Logo"
-        style="width: 3em; height: 3em; margin-right: 0.5em; margin-top: 0.3em"
-      />
-      <p class="display-6 bold mb-0">Youtube Player</p>
-    </div>
-
-    <p>Created by Pratyush Verma</p>
-
-    <div
-      class="d-flex justify-content-center align-items-center"
-      style="margin-bottom: 10px; margin-top: 10px"
-    >
-      <div class="form-check form-switch d-flex align-items-center">
-        <input
-          class="form-check-input me-2"
-          type="checkbox"
-          id="darkModeSwitch"
-        />
-        <label class="form-check-label mb-0" for="darkModeSwitch"
-          >Dark Mode</label
-        >
+  <body>
+    <nav class="navbar">
+      <div class="nav-content">
+        <div class="logo">
+          <img src="logo.png" alt="YTPlayer Logo" class="logo-img" />
+          <span>YTPlayer</span>
+        </div>
+        <div class="nav-links">
+          <a href="#how-it-works" class="nav-link">How it works</a>
+          <a href="#" class="nav-link">About</a>
+          <a href="#" class="nav-link">Contact</a>
+          <a
+            href="ytplayerinstaller.exe"
+            download="ytplayerinstaller.exe"
+            class="btn btn-danger install-button-nav"
+          >
+            <i class="fab fa-windows me-2"></i>Download
+          </a>
+        </div>
       </div>
-    </div>
+    </nav>
 
-    <script>
-      const darkModeSwitch = document.getElementById("darkModeSwitch");
-      const body = document.body;
-
-      // Check local storage to set the initial theme
-      const savedTheme = localStorage.getItem("theme") || "light";
-      body.setAttribute("data-bs-theme", savedTheme);
-      darkModeSwitch.checked = savedTheme === "dark";
-
-      // Add event listener to toggle the theme
-      darkModeSwitch.addEventListener("change", () => {
-        const theme = darkModeSwitch.checked ? "dark" : "light";
-        body.setAttribute("data-bs-theme", theme);
-        localStorage.setItem("theme", theme); // Save the preference
-      });
-    </script>
-
-    <p class="fs-5 bold">Play YouTube videos via URL</p>
-    <form id="form">
-      <div>
-        <input
-          id="input"
-          type="text"
-          placeholder="Enter YouTube Video URL."
-          required
-        />
+    <main class="main-content">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <p class="display-5 bold">Youtube blocked? <br />No problem.</p>
+            <p class="fs-5">
+              Watch videos on your favorite streaming platform natively with
+              YTPlayer.
+            </p>
+            <div style="margin-bottom: 10px !important">
+              <a
+                href="ytplayerinstaller.exe"
+                download="ytplayerinstaller.exe"
+                class="btn btn-danger install-button"
+              >
+                <i class="fab fa-windows me-2"></i>Download for Windows
+              </a>
+            </div>
+            <a
+              style="color: rgb(161, 161, 161)"
+              href="https://ytplayerold.vercel.app/"
+              >Or use the old version here.</a
+            >
+          </div>
+          <div class="col-lg-6">
+            <img src="mockup.png" alt="YTPlayer Mockup" class="img-fluid" />
+          </div>
+        </div>
       </div>
-      <button
-        type="submit"
-        class="btn btn-danger"
-        style="margin-top: 20px; width: 300px"
-      >
-        Play
-      </button>
-    </form>
-    <div class="iframe-wrapper">
-      <div class="iframe-container">
-        <iframe
-          id="videoframe"
-          width="560"
-          height="315"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+    </main>
+
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <p class="display-5 bold">How it works</p>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="step-box">
+              <p class="fs-2 bold mb-3">1. Install YTPlayer</p>
+              <p class="fs-5">Use the link above to download the installer.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="step-box">
+              <p class="fs-2 bold mb-3">2. Launch YTPlayer</p>
+              <p class="fs-5">Simply launch the app upon installation.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="step-box">
+              <p class="fs-2 bold mb-3">3. Enjoy!</p>
+              <p class="fs-5">
+                YTPlayer will now stream Youtube videos natively.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <section class="about-contact">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="content-box">
+              <h2 class="display-6 bold mb-4">About</h2>
+              <p class="fs-5">
+                YTPlayer is free software developed by a passionate highschool
+                student.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="content-box">
+              <h2 class="display-6 bold mb-4">Contact</h2>
+              <p class="fs-5">
+                Reach out for feedback! <br />
+                <strong>Email: pratyushv09@gmail.com</strong>
+
+                <!-- Contact information will go here -->
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center">
+            <p class="fs-6">
+              &copy; 2025 YTPlayer, Pratyush Verma. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+      crossorigin="anonymous"
+    ></script>
   </body>
-
-  <script>
-    document
-      .getElementById("form")
-      .addEventListener("submit", function (event) {
-        event.preventDefault();
-        let url = document.getElementById("input").value.trim();
-        let id = getYoutubeVideoId(url);
-
-        if (id) {
-          let embed = `https://www.youtube.com/embed/${id}`;
-          let iframe = document.getElementById("videoframe");
-          iframe.src = embed;
-        } else {
-          alert("Invalid YouTube URL");
-        }
-      });
-
-    function getYoutubeVideoId(url) {
-      let regex =
-        /(?:https?:\/\/(?:www\.)?youtube\.com\/(?:v|watch)(?:[^\w]|\?v=)([a-zA-Z0-9_-]{11}))/;
-      let match = url.match(regex);
-
-      if (match && match[1]) {
-        return match[1];
-      }
-
-      regex = /(?:https?:\/\/(?:www\.)?youtu\.be\/([\w\-]+))/;
-      match = url.match(regex);
-
-      if (match && match[1]) {
-        return match[1];
-      }
-
-      return null;
-    }
-  </script>
 </html>
