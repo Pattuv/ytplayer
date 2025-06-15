@@ -214,3 +214,103 @@ body {
   padding: 30px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+.menu-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: none;
+  z-index: 1002;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar {
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    border-radius: 0;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.95);
+  }
+
+  .nav-content {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.98);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transition: right 0.3s ease;
+    padding: 2rem;
+    z-index: 1001;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-links.active {
+    right: 0;
+  }
+
+  .nav-link {
+    font-size: 1.2rem;
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+    text-align: center;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+  }
+
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .install-button-nav {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .main-content {
+    padding-top: 100px;
+  }
+
+  .main-content .display-5 {
+    font-size: 2.5rem;
+  }
+
+  .step-box {
+    padding: 20px;
+  }
+
+  .content-box {
+    padding: 25px;
+  }
+
+  .about-contact {
+    padding: 40px 0;
+  }
+
+  .col-lg-6.order-lg-2.order-1 {
+    margin-top: 2rem;
+  }
+}
